@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>🎄 Merry Christmas 🎄</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+    height:100vh;
+    background:radial-gradient(circle at top,#1b5e20,#0b3d2e 60%,#062c1f);
+    overflow:hidden;
+    font-family:'Poppins',sans-serif;
+    color:white;
+}
+.container{
+    height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:80px;
+    padding-top:120px;
+    padding-bottom:80px;
+}
+.header{
+    position:fixed;
+    top:20px;
+    width:100%;
+    text-align:center;
+    font-family:'Great Vibes',cursive;
+    font-size:56px;
+    text-shadow:0 0 15px rgba(255,255,255,0.8);
+}
+.snowman{
+    position:fixed;
+    bottom:60px;
+    right:40px;
+    font-size:90px;
+    animation:bounce 2s infinite;
+}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.snow{
+    position:fixed;
+    top:-10px;
+    color:white;
+    animation:fall linear infinite;
+}
+@keyframes fall{to{transform:translateY(110vh)}}
+.tree{
+    font-size:130px;
+    animation:treeGlow 2s infinite alternate;
+}
+@keyframes treeGlow{from{filter:drop-shadow(0 0 5px gold)}to{filter:drop-shadow(0 0 25px red)}}
+.letter{
+    width:420px;
+    max-height:520px;
+    background:linear-gradient(#fff7e6,#fbe9d7);
+    color:#7b241c;
+    border-radius:20px;
+    padding:30px;
+    text-align:center;
+    cursor:pointer;
+    box-shadow:0 0 40px rgba(255,255,255,0.6);
+    overflow:hidden;
+}
+.message{
+    display:none;
+    margin-top:20px;
+    font-size:15px;
+    line-height:1.6;
+    max-height:360px;
+    overflow-y:auto;
+}
+.signature{
+    text-align:right;
+    font-family:'Great Vibes',cursive;
+    font-size:22px;
+}
+.footer{
+    position:fixed;
+    bottom:15px;
+    width:100%;
+    text-align:center;
+    font-size:12px;
+    opacity:0.6;
+}
+</style>
+</head>
+<body>
+<div class="header">🎄 Merry Christmas 🎄</div>
+<div class="snowman">☃️</div>
+
+<audio id="music" loop>
+<source src="https://cdn.pixabay.com/download/audio/2022/11/22/audio_9efb0a19aa.mp3" type="audio/mpeg">
+</audio>
+
+<div class="container">
+<div class="tree">🎄</div>
+<div class="letter" onclick="openLetter()">
+<h2>Christmas Letter</h2>
+<div class="message" id="msg">
+🎄 Giáng sinh này tuy chúng mình không thể đón cùng nhau,<br><br>
+Cảm ơn em vì tất cả ❤️<br><br>
+Anh mong những Giáng Sinh sau này chúng ta sẽ có nhau ☃️❤️<br><br>
+💖 Anh yêu em rất nhiều 💖<br><br>
+<div class="signature">— Lộk lổ ny của bạn Chiee</div>
+</div>
+</div>
+<div class="tree">🎄</div>
+</div>
+
+<div class="footer">❄ Merry Christmas & Happy New Year ❄</div>
+
+<script>
+function openLetter(){
+document.getElementById('msg').style.display='block';
+document.getElementById('music').play();
+}
+for(let i=0;i<60;i++){
+let s=document.createElement('div');
+s.className='snow';
+s.innerHTML='❄';
+s.style.left=Math.random()*100+'vw';
+s.style.animationDuration=(Math.random()*5+6)+'s';
+document.body.appendChild(s);
+}
+</script>
+</body>
+</html>
